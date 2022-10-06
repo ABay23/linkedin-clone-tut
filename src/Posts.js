@@ -1,3 +1,5 @@
+import { forwardRef } from 'react';
+import FlipMove from 'react-flip-move';
 import {
   ChatOutlined,
   SendOutlined,
@@ -8,9 +10,9 @@ import { Avatar } from '@mui/material';
 import InputOption from './InputOption';
 import './Posts.css';
 
-function Posts({ name, description, message, photoUrl }) {
+const Posts = forwardRef(({ name, description, message, photoUrl }, ref) => {
   return (
-    <div className='post'>
+    <div ref={ref} className='post'>
       <div className='post__header'>
         <Avatar src={photoUrl} />
         <div className='post__info'>
@@ -29,6 +31,6 @@ function Posts({ name, description, message, photoUrl }) {
       </div>
     </div>
   );
-}
+});
 
 export default Posts;
